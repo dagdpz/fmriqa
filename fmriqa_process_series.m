@@ -18,7 +18,7 @@ function out1 = fmriqa_process_series(varargin)
 % History of changes
 % 12.12.06	wrote it
 %
-% See also ROI_SERIES, RROI.
+% See also FMRIQA_ROI_SERIES, FMRIQA_RROI.
 %--------------------------------------------------------------------------------
 
 

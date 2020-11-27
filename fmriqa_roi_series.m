@@ -14,7 +14,7 @@ function [out1] = fmriqa_roi_series(I,n_skip,info,custom_info,interactive, setti
 % History of changes
 % 12.12.06	wrote it
 %
-% See also PROCESS_SERIES, ROI.
+% See also FMRIQA_PROCESS_SERIES, FMRIQA_ROI.
 %--------------------------------------------------------------------------------
 if nargin < 2
         n_skip = 0;

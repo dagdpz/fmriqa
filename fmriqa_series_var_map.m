@@ -15,7 +15,7 @@ function [out1] = fmriqa_series_var_map(I,n_skip,mask,interactive_roi,interactiv
 % 12.12.06	wrote it (IK)
 % 05.08.18	updated
 %
-% See also ROI_SERIES.
+% See also FMRIQA_ROI_SERIES.
 %--------------------------------------------------------------------------------
 
 if nargin < 2

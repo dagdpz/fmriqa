@@ -14,7 +14,7 @@ function [I,info] = fmriqa_read_dicom_series(n_slices,pathname,verbose);
 % History of changes
 % 12.12.06	wrote it
 %
-% See also PROCESS_SERIES.
+% See also FMRIQA_PROCESS_SERIES.
 %--------------------------------------------------------------------------------
 warning off Images:genericDICOM
 

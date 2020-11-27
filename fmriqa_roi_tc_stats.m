@@ -14,7 +14,7 @@ function out1 = fmriqa_roi_tc_stats(ROI_timecourse)
 % History of changes
 % 12.12.06	wrote it
 %
-% See also ROI_SERIES.
+% See also FMRIQA_ROI_SERIES.
 %--------------------------------------------------------------------------------
 ROI_mean    = mean(ROI_timecourse);
 ROI_std     = std(ROI_timecourse);

@@ -14,7 +14,7 @@ function fmriqa_process_series_output(in1);
 % History of changes
 % 12.12.06	wrote it
 %
-% See also PROCESS_SERIES.
+% See also FMRIQA_PROCESS_SERIES.
 %--------------------------------------------------------------------------------
 
 n_series = size(in1,2);

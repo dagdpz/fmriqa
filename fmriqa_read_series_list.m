@@ -14,7 +14,7 @@ function ser = fmriqa_read_series_list(varargin)
 % History of changes
 % 12.12.06	wrote it
 %
-% See also PROCESS_SERIES.
+% See also FMRIQA_PROCESS_SERIES.
 %--------------------------------------------------------------------------------
 
 if nargin == 1, 	% get series data from txt file 

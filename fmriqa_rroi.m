@@ -16,7 +16,7 @@ function [roi_image,rect] = fmriqa_rroi(action,varargin)
 % History of changes
 % 12.12.06	wrote it
 %
-% See also ROI_SERIES.
+% See also FMRIQA_ROI_SERIES.
 %--------------------------------------------------------------------------------
 
 if nargin < 1,

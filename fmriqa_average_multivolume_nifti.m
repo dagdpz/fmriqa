@@ -1,5 +1,5 @@
 function fmriqa_average_multivolume_nifti(fullpath)
-
+% uses NIFTI toolbox (Y:\Sources\NIFTI)
 
 msg = sprintf('\n image read: %s',fullpath); disp(msg);    
 nii = load_nii(fullpath);

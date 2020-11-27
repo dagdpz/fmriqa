@@ -14,7 +14,7 @@ function fmriqa_roi_dicom_series_memeff
 % History of changes
 % 12.12.06	wrote it
 %
-% See also PROCESS_SERIES, READ_SLICE_DICOM_SERIES.
+% See also FMRIQA_PROCESS_SERIES, FMRIQA_READ_SLICE_DICOM_SERIES.
 %--------------------------------------------------------------------------------
 
 % open first image in series

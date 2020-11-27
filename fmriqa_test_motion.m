@@ -14,13 +14,14 @@ function fmriqa_test_motion(pathname)
 % History of changes
 % 12.12.06	wrote it
 %
-% See also FIND_MOTION.
+% See also FMRIQA_FIND_MOTION.
 %--------------------------------------------------------------------------------
 
 if nargin <1
         pathname = uigetdir;
 end
 
+% these hardcoded settings should be inputs...
 n_slice = 5;
 n_slices = 10;
 n_skip = 5;

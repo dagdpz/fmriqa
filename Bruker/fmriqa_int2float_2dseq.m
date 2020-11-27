@@ -1,4 +1,5 @@
-function fmriqa_int2int32_2dseq(pathname,matrix_size,n_slices,verbose);
+function fmriqa_int2float_2dseq(pathname,matrix_size,n_slices,verbose);
+% Bruker stuff...
 
 ini_dir = pwd;
 if nargin < 1,
@@ -17,9 +18,9 @@ if nargin < 4,
         verbose = 1;
 end
 
-% SET THIS
-n_bytes = 2; 
-data_type = 'short';
+
+n_bytes = 4; 
+data_type = 'int';
 
 cd(pathname);
 
@@ -43,7 +44,7 @@ if verbose
 end
 fclose(fid);
 
-[status, message] = movefile('2dseq','2dseq.16');
+[status, message] = movefile('2dseq','2dseq.int');
 if ~status,
         disp(message);
         return;
@@ -51,14 +52,14 @@ end
         
        
 if verbose
-	disp(['Writing int32 2dseq ' pathname]);
+	disp(['Writing float 2dseq ' pathname]);
 end
 tic;
 fid1 = fopen('2dseq','wb');
-fwrite(fid1,data,'int');
+fwrite(fid1,data,'float32');
 elapsed_time = toc;
 if verbose
-	disp(['Wrote int32 2dseq in ' num2str(elapsed_time) ' sec']);
+	disp(['Wrote float 2dseq in ' num2str(elapsed_time) ' sec']);
 end
 
 
@@ -91,7 +92,7 @@ if verbose
 end
 fclose(fid);
 
-[status, message] = movefile('2dseq.im','2dseq.im.16');
+[status, message] = movefile('2dseq.im','2dseq.im.int');
 if ~status,
         disp(message);
         return;
@@ -99,14 +100,14 @@ end
         
        
 if verbose
-	disp(['Wrting int32 2dseq.im ' pathname]);
+	disp(['Wrting float 2dseq.im ' pathname]);
 end
 tic;
 fid1 = fopen('2dseq.im','wb');
-fwrite(fid1,data,'int');
+fwrite(fid1,data,'float32');
 elapsed_time = toc;
 if verbose
-	disp(['Wrote int32 2dseq.im in ' num2str(elapsed_time) ' sec']);
+	disp(['Wrote float 2dseq.im in ' num2str(elapsed_time) ' sec']);
 end
 
 
