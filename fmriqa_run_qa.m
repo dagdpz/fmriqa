@@ -27,14 +27,41 @@ ori_dir = pwd;
 if ~isempty(findstr(run_path,'.nii')),
     
     [out,pixdim,rotate,dtype] = fmriqa_readnifti(run_path);
-    I = permute(squeeze(out(:,:,n_slice,n_skip+1:end)),[2 1 3]);
-    I = flipdim(I,1);
-    info = [run_path ' sl. ' num2str(n_slice) ' of ' num2str(n_slices) ': ' num2str(size(out,4)-n_skip) ' images'];
+    n_slices = size(out,3);
+    
+    if isempty(n_slice), % look at all slices
+        % need Y:\Sources\NeuroElf_v11_7521\add_dag_ne_pipeline
+       
+        I = packmosaic(permute(out,[2 1 3 4]),3);
+        I = flipud(I(:,:,n_skip+1:end));
+        info = [run_path num2str(n_slices) 'slices: ' num2str(size(out,4)-n_skip) ' images'];
+         
+    else % specific slice
+        I = permute(squeeze(out(:,:,n_slice,n_skip+1:end)),[2 1 3]);
+        I = flipdim(I,1);
+        info = [run_path ' sl. ' num2str(n_slice) ' of ' num2str(n_slices) ': ' num2str(size(out,4)-n_skip) ' images'];
+    end
     [out1] = fmriqa_series_var_map(I,n_skip,0,0,0,info,'');
 
-    run_name = [strrep(run_path, filesep, '_') '_'];
-    run_name = strrep(run_name, ':', '');
-    saveas(gcf, [run_name '.pdf'], 'pdf');
+    saveas(gcf, [run_path '_fmriqa.pdf'], 'pdf');
+    
+elseif ~isempty(findstr(run_path,'.vtc')),
+    
+    vtc = xff(run_path);
+    
+    if isempty(n_slice), % look at all slices
+        % need Y:\Sources\NeuroElf_v11_7521\add_dag_ne_pipeline
+       
+        I = packmosaic(permute(vtc.VTCData,[2 4 3 1]),3);
+        I = I(:,:,n_skip+1:end);
+        info = [run_path num2str(n_slices) 'slices: ' num2str(vtc.NrOfVolumes-n_skip) ' images'];
+         
+    else % specific slice
+        
+    end
+    [out1] = fmriqa_series_var_map(I,n_skip,0,0,-1,info,'');
+
+    saveas(gcf, [run_path '_fmriqa.pdf'], 'pdf');    
 
 else
     cd(run_path);

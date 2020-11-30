@@ -22,6 +22,10 @@ end
 
 matrix_size = size(I,1);
 
+if matrix_size < 64,
+    matrix_size = 64;
+end
+
 switch matrix_size
 	case 128,
 		rect1 = [50 50 28 28];
@@ -55,6 +59,7 @@ switch matrix_size
 		center = matrix_size/2 - 40;
 		rect1 = [center-20 center-20 40 40];
 		rect2 = [center-39 center-39 5 5];
+        
 		
 	case 624, % mosaic 104x104x6
 		center = matrix_size/2 - 52;

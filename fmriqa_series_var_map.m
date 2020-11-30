@@ -193,9 +193,11 @@ end
 set(gcf,'CurrentAxes',ha1);
 
 
-if 1 % SNR
+if interactive_snr > -1, % SNR
     out_snr = fmriqa_two_roi_snr(I(:,:,1),interactive_snr);
     % text(matrix_size + matrix_size/2,1,['SNR: ' num2str(out_snr.snr,2)],'Color',[0 0.5 0.5],'FontSize',12);
+else
+    out_snr.std2 = 1;
 end
 
 
