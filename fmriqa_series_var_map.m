@@ -194,14 +194,11 @@ set(gcf,'CurrentAxes',ha1);
 
 
 if interactive_snr > -1, % SNR
+    
     out_snr = fmriqa_two_roi_snr(I(:,:,1),interactive_snr);
     % text(matrix_size + matrix_size/2,1,['SNR: ' num2str(out_snr.snr,2)],'Color',[0 0.5 0.5],'FontSize',12);
-else
-    out_snr.std2 = 1;
-end
-
-
-if 1 % SNR map per voxel
+    
+    % SNR map per voxel
 
     ha2 = subplot(2,3,2);
 
@@ -209,8 +206,11 @@ if 1 % SNR map per voxel
     colormap(ha2,cmap);
     hc2 = colorbar('horiz');
     title(['SNR map (mean_{vox}/std_{roi2})'],'FontSize',FS);
-
+ 
 end
+
+
+
 
 set([ha1 ha2 ha3 ha4 ha5 ha6]','tickdir','out','layer','top','xcolor','y','Xgrid','on','Ygrid','on','FontSize',7);
 
